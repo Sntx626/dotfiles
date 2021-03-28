@@ -1,0 +1,176 @@
+--[[
+Conky, a system monitor, based on torsmo
+
+Any original torsmo code is licensed under the BSD license
+
+All code written since the fork of torsmo is licensed under the GPL
+
+Please see COPYING for details
+
+Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+Copyright (c) 2005-2019 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+conky.config = {
+  -- CONKY SETTINGS
+  background = true,
+  update_interval = 1,
+  total_run_times = 0,
+  
+  cpu_avg_samples = 2,
+  net_avg_samples = 2,
+  
+  override_utf8_locale = true,
+  
+  double_buffer = true,
+  no_buffers = true,
+  
+  text_buffer_size = 32768,
+  
+  -- CONKY: WINDOW SPECIFICATIONS
+
+  own_window = true,
+  own_window_transparent = false,
+  own_window_argb_visual = true,
+  own_window_argb_value = 128,
+  own_window_type = 'desktop',
+  -- own_window_hints = 'undecorated,skip_taskbar,skip_pager,sticky',
+  own_window_hints = 'undecorated,skip_taskbar,skip_pager,sticky',
+  own_window_colour = '010101',
+  own_window_class = 'Conky',
+  
+  border_inner_margin = 6,
+  border_width = 5, 
+
+  minimum_height = 1024,
+  minimum_height = 1024,
+
+  minimum_width = 280,
+  maximum_width = 280,
+
+  alignment = 'top_right',
+  gap_x = 16,
+  gap_y = 40,
+
+  -- GRAPHICS SETTINGS
+  draw_shades = false,
+  draw_outline = false,
+  draw_borders = false,
+  draw_graph_borders = true,
+
+  -- TEXT SETTINGS
+  use_xft = true,
+  -- font = 'Montserrat Regular:size=10',
+  font = 'FiraCode Regular:size=10',
+  xftalpha = 0.2,
+
+  uppercase = false,
+
+  -- Pad percentages to this many decimals (0 = no padding)
+  pad_percents = 2,
+
+  -- COLOUR SETTINGS
+  default_color = 'AAAAAA',
+  default_shade_color = '333333',
+  default_outline_color = '010101',
+  color1 = '999999',
+  color2 = 'CCCCCC',
+  color3 = 'EEEEEE',
+  color4 = '444444',
+  color5 = '555555',
+  color6 = '666666',
+
+  -- lua_load = "~/Scripts/conky/draw_bg.lua",
+  -- lua_draw_hook_pre = "draw_bg",
+
+  if_up_strictness = 'link'
+};
+
+conky.text = [[
+${font FiraCode Light:size=8}${color1}KERNEL:${color}${font}${goto 70}${kernel}${alignr}$machine
+${font FiraCode Light:size=8}${color1}UPTIME:${color}${font}${alignr}${uptime}
+${font FiraCode Light:size=8}${color1}SYSTEM:${color}${font}${goto 70}${nodename}${alignr}Arch Linux
+${voffset 6}
+${font :size=11}${color1}MEMORY · ${memperc}% ${color6}${hr 2}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}RAM:${color}${font}${alignr}${color4}1x ${memmax} 3000MHz C15${color}${font}
+${color4}${memgraph 15,300, 32CD32 8B0000 -t}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}RAM USED:${color}${font}${alignr}${mem}
+${voffset 6}
+${font :size=11}${color1}CPUs · ${cpu cpu0}% · ${exec sensors | grep 'Package id' | awk '{print $4}' | grep -o '[0123456789][0123456789]'}°C ${color6}${hr 2}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}CPU:${color}${font}${alignr}${color4}Intel Core i7-6700k @ ${freq_g}Ghz${color}${font}
+${voffset -8}
+${font FiraCode Light:size=8}${color1}01 - 04:${color}${font} ${goto 102}${cpu cpu1}% ${goto 158}${cpu cpu2 }% ${goto 214}${cpu cpu3 }% ${alignr}${cpu cpu4 }%
+${font FiraCode Light:size=8}${color1}05 - 08:${color}${font} ${goto 102}${cpu cpu5}% ${goto 158}${cpu cpu6 }% ${goto 214}${cpu cpu7 }% ${alignr}${cpu cpu8 }%
+${voffset -8}
+${font FiraCode Light:size=8}${color1}CPU TEMPS:${color}${font} ${goto 102}${exec sensors | grep 'Core 0' | awk '{print $3}' | grep -o '[0123456789][0123456789]'}°${color4}C${color} ${goto 158}${exec sensors | grep 'Core 1' | awk '{print $3}' | grep -o '[0123456789][0123456789]'}°${color4}C${color} ${goto 214}${exec sensors | grep 'Core 2' | awk '{print $3}' | grep -o '[0123456789][0123456789]'}°${color4}C${color} ${alignr}${exec sensors | grep 'Core 3' | awk '{print $3}' | grep -o '[0123456789][0123456789]'}°${color4}C${color}
+${voffset 6}
+${font :size=11}${color1}NETWORK ${color6}${hr 2}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}LAN:${color}${font}${alignr}${color4}Intel® I219V${color}${font}
+${font FiraCode Light:size=8}${color1}CONN:${color}${font}${goto 70}${if_up enp0s31f6}true${else}false${endif} ${goto 150}${font FiraCode Light:size=8}${color1}IP ADDR:${color}${font} ${alignr}${addr enp0s31f6}
+${font FiraCode Light:size=8}${color1}SPEED:${goto 70}UP/s:${color}${font} ${goto 120}${upspeed enp0s31f6}${goto 180}${font FiraCode Light:size=8}${color1}DOWN/s:${color}${font}${goto 220}${alignr}${downspeed enp0s31f6}${font}
+${font FiraCode Light:size=8}${color1}UPLOAD: ${color}${font} ${goto 80}${color4}${upspeedgraph enp0s31f6 15,210 ADFF2F 32CD32 -t}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}DOWN:${color}${font} ${goto 80}${color4}${downspeedgraph enp0s31f6 15,210 FF0000 8B0000 -t}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}TOTAL:${goto 70}UP:${color}${font} ${goto 120}${totalup enp0s31f6}${goto 180}${font FiraCode Light:size=8}${color1}DOWN:${color}${font}${goto 220}${alignr}${totaldown enp0s31f6}${font}
+${voffset 6}
+${font FiraCode Light:size=8}${color1}WIFI:${color}${font}${alignr}${color4}Wi-Fi 802.11 a/b/g/n/ac${color}${font}
+${font FiraCode Light:size=8}${color1}CONN:${color}${font}${goto 70}${if_up wlp4s0}${wireless_link_qual_perc wlp4s0}%${else}false${endif} ${goto 150}${font FiraCode Light:size=8}${color1}IP ADDR:${color}${font} ${alignr}${addr wlp4s0}
+${font FiraCode Light:size=8}${color1}SPEED:${goto 70}UP/s:${color}${font} ${goto 120}${upspeed wlp4s0}${goto 180}${font FiraCode Light:size=8}${color1}DOWN/s:${color}${font}${goto 220}${alignr}${downspeed wlp4s0}${font}
+${font FiraCode Light:size=8}${color1}UPLOAD: ${color}${font} ${goto 80}${color4}${upspeedgraph wlp4s0 15,210 ADFF2F 32CD32 -t}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}DOWN:${color}${font} ${goto 80}${color4}${downspeedgraph wlp4s0 15,210 FF0000 8B0000 -t}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}TOTAL: ${goto 70}UP:${color}${font} ${goto 120}${totalup wlp4s0}${goto 180}${font FiraCode Light:size=8}${color1}DOWN:${color}${font}${goto 220}${alignr}${totaldown wlp4s0}${font}
+${voffset 6}
+${font :size=11}${color1}DISKS ${color6}${hr 2}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}DISK:${color}${font}${alignr}${color4}Samsung 850 EVO${color}${font}
+${font FiraCode Light:size=8}${color1}SSD HOME:${color}${font} ${goto 100}${fs_used /home} ${color4}/${color} ${fs_size /home} ${alignr} ${fs_used_perc /home}%${font}
+${voffset -12}
+${font FiraCode Light:size=8}${color1}DISK IO/s:${color}${font} ${alignr}${diskio}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}READ: ${color}${font} ${goto 80}${color4}${diskiograph_read  15,210 ADFF2F 32CD32 750}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}WRITE:${color}${font} ${goto 80}${color4}${diskiograph_write 15,210 FF0000 8B0000 750}${color}
+${voffset 6}
+${font :size=11}${color1}PROCESSES · ${processes} ${font}${color6}${hr 2}${color}
+${voffset -12}
+${font FiraCode Light:size=9}${color1}APP NAME: ${goto 160}MEMORY: ${goto 245}CPU: ${color}${font}
+${voffset -12}
+${font FiraCode Light:size=9}${color1}${top_mem name 1} ${color4}${font} ${goto 160}${top mem 1} % ${goto 235}${top cpu 1} %${color}
+${font FiraCode Light:size=9}${color1}${top_mem name 2} ${color4}${font} ${goto 160}${top mem 2} % ${goto 235}${top cpu 2} %${color}
+${font FiraCode Light:size=9}${color1}${top_mem name 3} ${color4}${font} ${goto 160}${top mem 3} % ${goto 235}${top cpu 3} %${color}
+${font FiraCode Light:size=9}${color1}${top_mem name 4} ${color4}${font} ${goto 160}${top mem 4} % ${goto 235}${top cpu 4} %${color}
+${font FiraCode Light:size=9}${color1}${top_mem name 5} ${color4}${font} ${goto 160}${top mem 5} % ${goto 235}${top cpu 5} %${color}
+${font FiraCode Light:size=9}${color1}${top_mem name 6} ${color4}${font} ${goto 160}${top mem 6} % ${goto 235}${top cpu 6} %${color}
+${font FiraCode Light:size=9}${color1}${top_mem name 7} ${color4}${font} ${goto 160}${top mem 7} % ${goto 235}${top cpu 7} %${color}
+${font FiraCode Light:size=9}${color1}${top_mem name 8} ${color4}${font} ${goto 160}${top mem 8} % ${goto 235}${top cpu 8} %${color}
+${font FiraCode Light:size=9}${color1}${top_mem name 9} ${color4}${font} ${goto 160}${top mem 9} % ${goto 235}${top cpu 9} %${color}
+${font FiraCode Light:size=9}${color1}${top_mem name 10} ${color4}${font} ${goto 160}${top mem 10} % ${goto 235}${top cpu 10} %${color}
+${voffset 6}
+${font :size=11}${color1}COVID · ${exec /usr/bin/python3 /home/leo/Scripts/conky/inzidenz.py} ${font}${color6}${hr 2}${color}
+${voffset -14}
+${font FiraCode Light:size=8}${color1}PLACE:${color}${font}${alignr}${color4}${exec /usr/bin/python3 /home/leo/Scripts/conky/name.py}, ${exec /usr/bin/python3 /home/leo/Scripts/conky/state.py}${color}${font}
+${font FiraCode Light:size=8}${color1}LAST UPDATE:${color}${font}${alignr}${color4}${exec /usr/bin/python3 /home/leo/Scripts/conky/last_update.py}${color}${font}
+${voffset -10}
+${font FiraCode Light:size=8}${color1}${alignr}by Sntx inspired Kematzy${color}${font}
+${exec /usr/bin/python3 /home/leo/Scripts/conky/update.py}
+]];

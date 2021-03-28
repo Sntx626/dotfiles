@@ -1,0 +1,6 @@
+configuration {
+  modi: "window,drun";
+  theme: "slate";
+  font: "FiraCode Regular 10";
+  combi-modi: "window,drun,ssh";
+}
