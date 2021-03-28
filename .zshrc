@@ -98,8 +98,6 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconfig="nano ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias please="sudo"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 eval "$(starship init zsh)"

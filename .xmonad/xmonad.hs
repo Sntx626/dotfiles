@@ -269,8 +269,8 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-    spawnOnce "xmobar"
-    spawnOnce "conky"
+    -- spawnOnce "xmobar"
+    -- spawnOnce "conky"
     spawnOnce "komorebi"
 
 ------------------------------------------------------------------------

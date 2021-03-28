@@ -2,7 +2,7 @@ Config {
 
    -- appearance
      font     =     "xft:FiraCode Regular:size=9:bold:antialias=true"
-   , bgColor  =     "#080808"
+   , bgColor  =     "#111111"
    , fgColor  =     "#808080"
    , position =     Static { xpos = 4 , ypos = 4, width = 1912, height = 20 }
 
