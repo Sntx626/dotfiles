@@ -4,14 +4,8 @@
 *.*
 */
 
-*__pycache__/
-
 # Except:
 
-!.fonts/
-!.git/
-!.oh-my-zsh/
-!.themes/
 !Archive/
 !Desktop/
 !Documents/
@@ -19,22 +13,6 @@
 !Music/
 !Pictures/
 !Public/
-!Scripts/
 !Shared/
 !Templates/
 !Videos/
-
-!.config/
-.config/*
-.config/*/
-# In .config
-!neofetch/
-!starship.toml
-
-!.alacritty.yml
-!.conkyrc
-!.insyncignore
-!.zshrc
-
-!.gitconfig
-!.gitignore
