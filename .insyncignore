@@ -1,0 +1,40 @@
+# Ignore everything
+
+*
+*.*
+*/
+
+*__pycache__/
+
+# Except:
+
+!.fonts/
+!.git/
+!.oh-my-zsh/
+!.themes/
+!Archive/
+!Desktop/
+!Documents/
+!Downloads/
+!Music/
+!Pictures/
+!Public/
+!Scripts/
+!Shared/
+!Templates/
+!Videos/
+
+!.config/
+.config/*
+.config/*/
+# In .config
+!neofetch/
+!starship.toml
+
+!.alacritty.yml
+!.conkyrc
+!.insyncignore
+!.zshrc
+
+!.gitconfig
+!.gitignore
