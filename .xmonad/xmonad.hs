@@ -29,6 +29,7 @@ import XMonad.Layout.Gaps
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import Data.Maybe (maybeToList)
+import XMonad.Hooks.DynamicLog
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -104,7 +105,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
     , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
 
     -- launch rofi
-    , ((modm,               xK_space ), spawn "rofi -show drun -show-icons")
+    , ((modm,               xK_space ), spawn "rofi -show combi -show-icons")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_q     ), kill)
@@ -272,6 +273,20 @@ myStartupHook = do
     -- spawnOnce "xmobar"
     -- spawnOnce "conky"
     spawnOnce "komorebi"
+
+
+
+------------------------------------------------------------------------
+-- Xmobar config
+
+-- Command to launch the bar.
+--
+myBar = "xmobar"
+
+-- Custom PP, configure it as you like. It determines what is being written to the bar.
+-- 
+myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
+
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
