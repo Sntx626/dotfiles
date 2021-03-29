@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "last_update": 1616992079.2950854,
+    "last_update_readable": "Mon Mar 29 06:27:59 2021",
+    "request_counter": 13
+  },
+  "data": {
+    "Status": "Connected",
+    "Time": "0:03:28",
+    "IP": "89.38.97.125",
+    "Server": "NL-FREE#4",
+    "Features": "Normal",
+    "Protocol": "UDP",
+    "KillSwitch": "Disabled",
+    "Country": "Netherlands",
+    "City": "None",
+    "Load": "69%",
+    "Received": "229.51KB",
+    "Sent": "95.59KB"
+  }
+}
