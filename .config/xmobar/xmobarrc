@@ -4,7 +4,7 @@ Config {
      font     =     "xft:FiraCode Regular:size=9:bold:antialias=true"
    , bgColor  =     "#111111"
    , fgColor  =     "#808080"
-   , position =     Static { xpos = 4 , ypos = 4, width = 1912, height = 20 }
+   , position =     Static { xpos = 4 , ypos = 4, width = 2552, height = 20 }
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text

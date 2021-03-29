@@ -55,8 +55,8 @@ conky.config = {
   border_inner_margin = 6,
   border_width = 5, 
 
-  minimum_height = 1024,
-  minimum_height = 1024,
+  minimum_height = 1384,
+  minimum_height = 1384,
 
   minimum_width = 280,
   maximum_width = 280,
