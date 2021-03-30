@@ -1,22 +1,5 @@
 {
-  "metadata": {
-    "last_update": 1617053869.1302388,
-    "last_update_readable": "Mon Mar 29 23:37:49 2021",
-    "request_counter": 58
-  },
-  "data": {
-    "Status": "Disconnected",
-    "Time": "0:02:11",
-    "IP": "31.17.250.247",
-    "Server": "NL-FREE#2",
-    "Features": "Normal",
-    "Protocol": "UDP",
-    "KillSwitch": "Disabled",
-    "Country": "Netherlands",
-    "City": "None",
-    "Load": "93%",
-    "Received": "158.43KB",
-    "Sent": "41.35KB",
-    "ISP": "VodafoneGermanyCable"
-  }
+  "last_update": 1617069883.1423585,
+  "last_update_readable": "Tue Mar 30 04:04:43 2021",
+  "request_counter": 354
 }

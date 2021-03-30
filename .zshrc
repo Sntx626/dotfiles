@@ -99,6 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias zshconfig="nano ~/.zshrc"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias update='sudo pacman -Syu && yay -Syu'
+alias update='/usr/bin/python /home/leo/Scripts/update/update.py'
+alias snapshot='/usr/bin/python /home/leo/Scripts/update/snapshot.py'
 
 eval "$(starship init zsh)"
