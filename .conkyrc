@@ -137,17 +137,17 @@ ${font FiraCode Light:size=8}${color1}DOWN:${color}${font} ${goto 80}${color4}${
 ${voffset -14}
 ${font FiraCode Light:size=8}${color1}TOTAL: ${goto 70}UP:${color}${font} ${goto 120}${totalup wlp4s0}${goto 180}${font FiraCode Light:size=8}${color1}DOWN:${color}${font}${goto 220}${alignr}${totaldown wlp4s0}${font}
 ${voffset 6}
-${if_match "${head /home/leo/Scripts/protonVPN/Status.txt 1}"=="Connected"}${font :size=11}${color1}VPN · Connected · ${head /home/leo/Scripts/protonVPN/Load.txt 1} ${font}${color6}${hr 2}${color}
+${if_match "${head /home/leo/Scripts/protonVPN/Status.txt 1}"=="Connected"}${font :size=11}${color1}VPN · ${head /home/leo/Scripts/protonVPN/Load.txt 1} ${font}${color6}${hr 2}${color}
 ${voffset -12}
-${font FiraCode Light:size=8}${color1}IP:${color}${font}${alignr}${color4}${head /home/leo/Scripts/protonVPN/IP.txt 1}
 ${font FiraCode Light:size=8}${color1}SERVER:${color}${font}${alignr}${color4}${head /home/leo/Scripts/protonVPN/Server.txt 1}${color}${font}
+${font FiraCode Light:size=8}${color1}CONN:${color}${font}${goto 70}true${goto 150}${font FiraCode Light:size=8}${color1}IP ADDR:${color}${font}${alignr}${head /home/leo/Scripts/protonVPN/IP.txt 1}
 ${font FiraCode Light:size=8}${color1}TOTAL:${goto 70}UP:${color}${font} ${goto 120}${head /home/leo/Scripts/protonVPN/Sent.txt 1}${goto 180}${font FiraCode Light:size=8}${color1}DOWN:${color}${font}${goto 220}${alignr}${head /home/leo/Scripts/protonVPN/Received.txt 1}${font}
-${else}${font :size=11}${color1}VPN · Disconnected ${font}${color6}${hr 2}${color}
+${else}${font :size=11}${color1}VPN ${font}${color6}${hr 2}${color}
 ${voffset -12}
-${font FiraCode Light:size=8}${color1}IP:${color}${font}${alignr}${color4}${head /home/leo/Scripts/protonVPN/IP.txt 1}${color}${font}
 ${font FiraCode Light:size=8}${color1}ISP:${color}${font}${alignr}${color4}${head /home/leo/Scripts/protonVPN/ISP.txt 1}${color}${font}
-${font FiraCode Light:size=8}${color1}DATA:${color}${font}${alignr}${color4}0 B | 0 B${color}${font}
-${endif}${font FiraCode Light:size=8}${color1}NEXT UPDATE:${color}${font}${alignr}${color4}${head /home/leo/Scripts/protonVPN/next_update_in.txt 1 1}${color}${font}
+${font FiraCode Light:size=8}${color1}CONN:${color}${font}${goto 70}false${goto 150}${font FiraCode Light:size=8}${color1}IP ADDR:${color}${font}${alignr}${head /home/leo/Scripts/protonVPN/IP.txt 1}
+${font FiraCode Light:size=8}${color1}TOTAL:${goto 70}UP:${color}${font} ${goto 120}0 B${goto 180}${font FiraCode Light:size=8}${color1}DOWN:${color}${font}${goto 220}${alignr}0 B${font}
+${endif}${font FiraCode Light:size=8}${color1}NEXT UPDATE:${color}${font}${alignr}${head /home/leo/Scripts/protonVPN/next_update_in.txt 1 1}${color}${font}
 ${voffset 6}
 ${font :size=11}${color1}DISKS ${color6}${hr 2}${color}
 ${voffset -14}

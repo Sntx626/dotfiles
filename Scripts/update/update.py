@@ -26,7 +26,7 @@ def main() -> None:
     if ask("Do you want to start the update?"):
         os.system("sudo pacman -Syyu && yay -Syyu")
     
-    print("done")
+    #print("done")
 
 if __name__ == "__main__":
     main()

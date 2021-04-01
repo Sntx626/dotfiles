@@ -16,11 +16,11 @@ if now-status["last_update"] > 300:
         tmp[0] = str(tmp[0]).replace(' ', '_')
         if tmp[0] in ["Sent", "Received"]: # ie.: tmp[1] == 529.86 KB
             subdata = tmp[1].strip(" ").split(" ")
-            print("subdata", subdata)
-            print("pre round", float(subdata[0]), type(float(subdata[0])))
-            print("past round", round(float(subdata[0]), 2))
+            #print("subdata", subdata)
+            #print("pre round", float(subdata[0]), type(float(subdata[0])))
+            #print("past round", round(float(subdata[0]), 2))
             tmp[1] == f"{round(float(subdata[0]), 2)} {subdata[1]}"
-            print("tmp[1]", tmp[1])
+            #print("tmp[1]", tmp[1])
         with open(f"/home/leo/Scripts/protonVPN/{tmp[0]}.txt", "w") as f:
             f.write(tmp[1].strip(" "))
     json.dump(status, open("/home/leo/Scripts/protonVPN/data.json", "w"), indent=2)
