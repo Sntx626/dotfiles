@@ -239,6 +239,7 @@ myManageHook = fullscreenManageHook <+> manageDocks <+> composeAll
     , isFullscreen                  --> doFullFloat
     , className =? "komorebi"       --> doIgnore
     , className =? "conky"          --> doIgnore
+    , className =? "feh"            --> doFloat
     ]
 
 ------------------------------------------------------------------------

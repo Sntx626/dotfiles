@@ -59,17 +59,18 @@ def ask(question:str, responses:list, use_newline:bool=True) -> int:
         return ask(question=question, responses=responses, use_newline=use_newline)
 
 def main() -> None:
-    selection = ask("Do you want to:", responses=["Show info?", "Take a Snapshot?", "Finalize a Snapshot?", "Rollback to a Snapshot?", "Cancel?"], use_newline=False)
+    print("")
+    os.system("sudo lvs")
+    print("")
+    selection = ask("Do you want to:", responses=["Take a Snapshot?", "Finalize a Snapshot?", "Rollback to a Snapshot?", "Cancel?"])
     print("")
     if selection == 0:
-        os.system("sudo lvs")
-    elif selection == 1:
         take_snapshot()
-    elif selection == 2:
+    elif selection == 1:
         finalize()
-    elif selection == 3:
+    elif selection == 2:
         rollback()
-    elif selection == 4:
+    elif selection == 3:
         print("Aborted!")
         return
     print("\ndone!")
