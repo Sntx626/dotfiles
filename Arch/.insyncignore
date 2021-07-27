@@ -1,0 +1,18 @@
+# Ignore everything
+
+*
+*.*
+*/
+
+# Except:
+
+!Archive/
+!Desktop/
+!Documents/
+!Downloads/
+!Music/
+!Pictures/
+!Public/
+!Shared/
+!Templates/
+!Videos/
